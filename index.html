@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traiteur de fêtes</title>
+<meta name="description" content="Traiteur pour fêtes et événements : mariages, aqiqa, fiançailles et événements d’entreprise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2b2a;--teal:#0f5c5a;--teal-d:#0a3f3e;--saffron:#d9962b;--sand:#faf5ea;--sand-2:#f1e8d3;--line:#e3d9c0;--muted:#6b6f68}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#d9d2bf;color:var(--ink);font-family:"Poppins",Arial,sans-serif;line-height:1.65}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+.page{max-width:520px;min-height:100vh;margin:0 auto;background:var(--sand);overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.15)}
+@media(min-width:650px){.page{margin:25px auto;min-height:auto;border-radius:20px}}
+
+.cover{position:relative;height:230px;background:
+ linear-gradient(135deg,rgba(10,63,62,.92),rgba(15,92,90,.85)),
+ repeating-linear-gradient(45deg,var(--teal) 0 14px,var(--teal-d) 14px 28px)}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.cover::after{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:var(--saffron)}
+.top-bar{position:absolute;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;z-index:2}
+.badge{padding:6px 13px;border-radius:20px;background:rgba(0,0,0,.45);color:#fff;font-size:11px}
+.share{width:40px;height:40px;border:0;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:17px;cursor:pointer}
+.share:hover{background:var(--saffron)}
+
+.profile{padding:0 24px 24px;text-align:center}
+.logo{width:116px;height:116px;margin:-58px auto 0;position:relative;z-index:3;border-radius:50%;border:5px solid var(--sand);overflow:hidden;background:var(--saffron);display:flex;align-items:center;justify-content:center;font-size:44px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.name{margin-top:12px;font-size:24px;font-weight:800;line-height:1.35}
+.role{color:var(--teal);font-weight:600;font-size:14px}
+.city{color:var(--muted);font-size:13px;margin-top:2px}
+.bio{margin:14px auto 0;max-width:440px;color:#4a4f49;font-size:13.5px;line-height:1.9}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line);background:#fff}
+.stat{padding:14px 4px;text-align:center;border-inline-start:1px solid var(--line)}
+.stat:first-child{border-inline-start:0}
+.stat b{display:block;font-size:20px}
+.stat span{font-size:11px;color:var(--muted)}
+
+.actions{padding:22px 22px 26px;display:grid;gap:10px}
+.action{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 16px;border:0;border-radius:11px;color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.action:hover{transform:translateY(-2px);box-shadow:0 7px 18px rgba(0,0,0,.15)}
+.action:focus-visible,.bottom-nav a:focus-visible,.bottom-nav button:focus-visible{outline:3px solid var(--saffron);outline-offset:2px}
+.a-call{background:var(--ink)}
+.a-wa{background:#1f7a4d}
+.a-ig{background:#7a2e57}
+.a-fb{background:#2c4a8a}
+.a-web{background:var(--teal)}
+.a-mail{background:#5b5f58}
+.a-map{background:var(--teal-d)}
+.a-save{background:var(--saffron);color:var(--ink);font-size:15px;font-weight:700}
+
+.section{padding:12px 24px 22px}
+.section h2{font-size:19px;font-weight:700;margin-bottom:14px;padding-inline-start:12px;border-inline-start:5px solid var(--saffron)}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.service{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center}
+.service i{display:block;font-style:normal;font-size:26px}
+.service b{display:block;font-size:13px;margin-top:2px}
+.service small{color:var(--muted);font-size:11px}
+.about{background:#fff;border:1px solid var(--line);border-inline-start:4px solid var(--teal);border-radius:10px;padding:16px;font-size:13px;line-height:1.9;color:#4a4f49}
+.contact{display:grid;gap:10px}
+.item{display:flex;align-items:center;gap:12px;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.item i{width:36px;height:36px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-style:normal;flex-shrink:0}
+.item small{display:block;color:var(--muted);font-size:10px}
+.item b{display:block;font-size:12.5px;font-weight:600;word-break:break-word}
+.logo svg{display:block;width:100%;height:100%}
+.map-card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(10,63,62,.12)}
+.map-embed{width:100%;height:300px;border:0;display:block}
+.map-info{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;color:#fff;background:linear-gradient(135deg,var(--teal),var(--teal-d))}
+.map-title{font-weight:600;font-size:14px}
+.map-sub{font-size:12px;opacity:.9}
+.map-info:focus-visible{outline:3px solid var(--saffron);outline-offset:-3px}
+.footer{padding:22px 20px 90px;text-align:center;font-size:11px;color:var(--muted);line-height:2}
+.footer strong{color:var(--teal)}
+
+.bottom-nav{position:sticky;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(250,245,234,.96);border-top:1px solid var(--line);backdrop-filter:blur(12px)}
+.bottom-nav a,.bottom-nav button{min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:0;background:transparent;color:var(--ink);font-size:11px;font-weight:600;cursor:pointer}
+.bottom-nav span{font-size:19px}
+.bottom-nav a:hover,.bottom-nav button:hover{background:var(--sand-2);color:var(--teal)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="page">
+
+<section class="cover">
+  <img src="cover.jpg" alt="" onerror="this.style.display='none'">
+  <div class="top-bar">
+    <div class="badge">Disponible pour votre fête</div>
+    <button class="share" onclick="shareProfile()" aria-label="Partager la page">⤴</button>
+  </div>
+</section>
+
+<section class="profile">
+  <div class="logo" id="logo" role="img" aria-label="Logo"></div>
+  <h1 class="name" data-text="name"></h1>
+  <div class="role" data-text="role"></div>
+  <div class="city">📍 <span data-text="city"></span></div>
+  <p class="bio" data-text="bio"></p>
+</section>
+
+<div class="stats">
+  <div class="stat"><b>🎉</b><span>Mariages</span></div>
+  <div class="stat"><b>👶</b><span>Aqiqa & fiançailles</span></div>
+  <div class="stat"><b>🏢</b><span>Entreprises</span></div>
+</div>
+
+<section class="actions">
+  <a class="action a-call" data-href="tel"><span>📞</span> Appeler</a>
+  <a class="action a-wa" data-href="whatsapp" target="_blank" rel="noopener noreferrer"><span>💬</span> WhatsApp</a>
+  <a class="action a-ig" data-href="instagram" target="_blank" rel="noopener noreferrer"><span>📷</span> Instagram</a>
+  <a class="action a-fb" data-href="facebook" target="_blank" rel="noopener noreferrer"><span>👍</span> Facebook</a>
+  <a class="action a-web" data-href="website" target="_blank" rel="noopener noreferrer"><span>🌐</span> Site web</a>
+  <a class="action a-mail" data-href="mail"><span>✉️</span> Envoyer un e-mail</a>
+  <a class="action a-map" data-href="maps" target="_blank" rel="noopener noreferrer"><span>📍</span> Voir sur Google Maps</a>
+  <button class="action a-save" onclick="saveContact()"><span>➕</span> Enregistrer le contact</button>
+</section>
+
+<section class="section">
+  <h2>Nos services</h2>
+  <div class="services">
+    <div class="service"><i>🍖</i><b>Cuisine marocaine</b><small>Tajines, volaille, viandes</small></div>
+    <div class="service"><i>🍰</i><b>Pâtisserie & buffet</b><small>Gâteaux marocains et modernes</small></div>
+    <div class="service"><i>🛎️</i><b>Service & serveurs</b><small>Personnel professionnel</small></div>
+    <div class="service"><i>🪑</i><b>Installation de la salle</b><small>Tables, chaises, décoration</small></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>À propos</h2>
+  <div class="about" data-text="about"></div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <div class="contact">
+    <div class="item"><i>📞</i><div><small>Téléphone</small><b data-text="phoneDisplay"></b></div></div>
+    <div class="item"><i>✉️</i><div><small>E-mail</small><b data-text="email"></b></div></div>
+    <div class="item"><i>📍</i><div><small>Adresse</small><b data-text="address"></b></div></div>
+  </div>
+</section>
+
+<section class="section" id="map">
+  <h2>Localisation</h2>
+  <div class="map-card">
+    <iframe class="map-embed" id="mapFrame" title="Carte de localisation" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <a class="map-info" data-href="maps" target="_blank" rel="noopener noreferrer">
+      <div><div class="map-title" data-text="address"></div><div class="map-sub">Ouvrir dans Google Maps</div></div>
+      <span>📍</span>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <strong data-text="name"></strong><br>
+  <span data-text="role"></span>
+</footer>
+
+<nav class="bottom-nav">
+  <a data-href="tel"><span>📞</span>Appeler</a>
+  <a data-href="whatsapp" target="_blank" rel="noopener noreferrer"><span>💬</span>WhatsApp</a>
+  <a data-href="maps" target="_blank" rel="noopener noreferrer"><span>📍</span>Localisation</a>
+  <button onclick="saveContact()"><span>➕</span>Enregistrer</button>
+</nav>
+
+</main>
+
+<script>
+/* =====================================================
+   Modifiez uniquement ces informations :
+   tout le reste de la page se met à jour automatiquement
+===================================================== */
+const CONFIG = {
+  name: "Nom du Traiteur",
+  nameLatin: "Nom du Traiteur",       // utilisé pour le nom du fichier .vcf
+  role: "Traiteur de fêtes et d’événements",
+  city: "Kénitra, Maroc",
+  address: "Quartier, rue, Kénitra, Maroc",
+  bio: "Nous préparons votre fête de A à Z : cuisine marocaine authentique, service soigné et prix adaptés. Mariages, aqiqa, fiançailles et événements d’entreprise.",
+  about: "Traiteur spécialisé dans l’organisation de fêtes et d’événements à Kénitra et ses environs. Nous vous proposons des plats variés et un service irréprochable pour faire de votre événement une vraie réussite.",
+  phone: "+212600000000",
+  phoneDisplay: "+212 600 000 000",
+  whatsapp: "212600000000",            // sans + et sans espaces
+  email: "contact@exemple.com",
+  instagram: "https://www.instagram.com/votre_compte",
+  facebook: "https://www.facebook.com/votre.page",
+  website: "https://www.votresite.com",
+  mapsQuery: "Nom du Traiteur, Kénitra, Maroc",   // adresse exacte : sert pour la carte et le bouton Localisation
+  maps: ""                            // laissez vide : lien Google Maps créé automatiquement
+};
+
+/* ---------- Logo virtuel (SVG, aucune image à ajouter) ---------- */
+const LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="240" height="240">
+<circle cx="60" cy="60" r="60" fill="#0f5c5a"/>
+<circle cx="60" cy="60" r="54" fill="none" stroke="#d9962b" stroke-width="1.5"/>
+<circle cx="60" cy="36" r="5" fill="#d9962b"/>
+<path d="M28 74A32 32 0 0 1 92 74Z" fill="#d9962b"/>
+<path d="M37 68A24 24 0 0 1 50 50" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round"/>
+<rect x="20" y="78" width="80" height="6" rx="3" fill="#faf5ea"/>
+<path d="M44 94h32" stroke="#faf5ea" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/>
+</svg>`;
+document.getElementById("logo").innerHTML = LOGO_SVG;
+const fav = document.createElement("link");
+fav.rel = "icon"; fav.href = "data:image/svg+xml," + encodeURIComponent(LOGO_SVG);
+document.head.appendChild(fav);
+
+if (!CONFIG.maps) CONFIG.maps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONFIG.mapsQuery);
+
+/* ---------- remplissage automatique ---------- */
+document.querySelectorAll("[data-text]").forEach(el => el.textContent = CONFIG[el.dataset.text]);
+const LINKS = {
+  tel: "tel:" + CONFIG.phone,
+  whatsapp: "https://wa.me/" + CONFIG.whatsapp,
+  mail: "mailto:" + CONFIG.email,
+  instagram: CONFIG.instagram,
+  facebook: CONFIG.facebook,
+  website: CONFIG.website,
+  maps: CONFIG.maps
+};
+document.querySelectorAll("[data-href]").forEach(el => el.href = LINKS[el.dataset.href]);
+document.title = CONFIG.name + " | " + CONFIG.role;
+document.getElementById("mapFrame").src = "https://www.google.com/maps?q=" + encodeURIComponent(CONFIG.mapsQuery) + "&z=15&output=embed";
+
+/* ---------- Logo en photo de contact ---------- */
+function logoJpegBase64() {
+  return new Promise(resolve => {
+    try {
+      const img = new Image();
+      img.onload = () => {
+        const c = document.createElement("canvas");
+        c.width = c.height = 256;
+        const x = c.getContext("2d");
+        x.fillStyle = "#0f5c5a"; x.fillRect(0, 0, 256, 256);
+        x.drawImage(img, 0, 0, 256, 256);
+        resolve(c.toDataURL("image/jpeg", 0.9).split(",")[1]);
+      };
+      img.onerror = () => resolve("");
+      img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(LOGO_SVG);
+    } catch (e) { resolve(""); }
+  });
+}
+function foldLine(line) {
+  const out = [];
+  while (line.length > 74) { out.push(line.slice(0, 74)); line = " " + line.slice(74); }
+  out.push(line);
+  return out.join("\r\n");
+}
+
+/* ---------- Enregistrer le contact (vCard) ---------- */
+async function saveContact() {
+  const photo = await logoJpegBase64();
+  const esc = s => String(s).replace(/([,;])/g, "\\$1");
+  const lines = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    "N:" + esc(CONFIG.name) + ";;;;",
+    "FN:" + CONFIG.name,
+    "ORG:" + esc(CONFIG.name),
+    "TITLE:" + CONFIG.role,
+    "TEL;TYPE=CELL,VOICE:" + CONFIG.phone,
+    "EMAIL;TYPE=INTERNET:" + CONFIG.email,
+    "ADR;TYPE=WORK:;;" + esc(CONFIG.address) + ";" + esc(CONFIG.city) + ";;;MA",
+    "URL;TYPE=WORK:" + CONFIG.website,
+    "URL;TYPE=Instagram:" + CONFIG.instagram,
+    "URL;TYPE=Facebook:" + CONFIG.facebook,
+    "URL;TYPE=Maps:" + CONFIG.maps,
+    "X-SOCIALPROFILE;TYPE=instagram:" + CONFIG.instagram,
+    "X-SOCIALPROFILE;TYPE=facebook:" + CONFIG.facebook,
+    "NOTE:" + esc(CONFIG.bio)
+  ];
+  if (photo) lines.push("PHOTO;ENCODING=b;TYPE=JPEG:" + photo);
+  lines.push("END:VCARD");
+  const blob = new Blob([lines.map(foldLine).join("\r\n") + "\r\n"], { type: "text/vcard;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = CONFIG.nameLatin.replace(/\s+/g, "-") + ".vcf";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+/* ---------- Partager ---------- */
+async function shareProfile() {
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: CONFIG.name, text: CONFIG.role, url: location.href });
+    } else {
+      await navigator.clipboard.writeText(location.href);
+      alert("Le lien de la page a été copié.");
+    }
+  } catch (e) { console.log(e); }
+}
+</script>
+</body>
+</html>
